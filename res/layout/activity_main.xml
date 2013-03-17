@@ -1,0 +1,109 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="top" >
+
+    <TextView
+        android:id="@+id/txt_welcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/txt_welcome"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:minHeight="60dip"
+        android:minWidth="100dip"
+        android:text="@string/btn_login" />
+
+    <Button
+        android:id="@+id/btn_upload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:minHeight="60dip"
+        android:minWidth="100dip"
+        android:text="@string/btn_upload" />
+
+    <ToggleButton
+        android:id="@+id/btn_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:minHeight="60dip"
+        android:minWidth="100dip"
+        android:text="@string/btn_record"
+        android:textOff="@string/off"
+        android:textOn="@string/on" />
+
+    <Button
+        android:id="@+id/btn_internet"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/txt_welcome"
+        android:layout_marginTop="11dp"
+        android:minHeight="60dip"
+        android:minWidth="100dip"
+        android:text="@string/btn_internet" />
+
+    <TextView
+        android:id="@+id/txt_gps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btn_internet"
+        android:layout_alignParentLeft="true"
+        android:text="@string/txt_gps"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/txt_accelerometer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/btn_internet"
+        android:layout_marginTop="50dp"
+        android:text="@string/txt_accelerometer"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/btn_gps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/txt_accelerometer"
+        android:layout_marginTop="57dp"
+        android:minHeight="60dip"
+        android:minWidth="100dip"
+        android:text="@string/btn_gps" />
+
+    <TextView
+        android:id="@+id/txt_accuracy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/btn_gps"
+        android:text="@string/txt_accuracy"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/txt_speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/btn_gps"
+        android:text="@string/txt_speed"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</RelativeLayout>
