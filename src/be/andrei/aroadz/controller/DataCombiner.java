@@ -6,6 +6,7 @@ import java.util.Observer;
 
 import be.andrei.aroadz.GUI;
 import be.andrei.aroadz.model.Data;
+import be.andrei.aroadz.utils.Toasts;
 
 
 
@@ -15,24 +16,24 @@ public class DataCombiner implements Observer{
 	private GPS gps  = null;
 	private Data data = null;
 	private 
-		SimpleDateFormat format;
-		double time = 0;
-		String dateString;
-		String dataline;
+			SimpleDateFormat format;
+			double time = 0;
+			String dateString;
+			String dataline;
 
 
 	
 	public DataCombiner(){
-		acc = new Accelerometer();
-		gps  = new GPS();
-		data = new Data();
-		
-		format = new SimpleDateFormat("ddkkmmssSSS");
-	 	dateString = new String();
-	 	dataline = new String();
-	 	
-	 	acc.addMyObserver(this);
-	 	gps.addMyObserver(this);	 	
+			acc = new Accelerometer();
+			gps  = new GPS();
+			data = new Data();
+			
+			format = new SimpleDateFormat("ddkkmmssSSS");
+		 	dateString = new String();
+		 	dataline = new String();
+		 	
+		 	acc.addMyObserver(this);
+		 	gps.addMyObserver(this);	 	
 	}
 
 
@@ -52,10 +53,15 @@ public class DataCombiner implements Observer{
 	@Override
 	public void update(Observable observable, Object data) {
 		if (GUI.btn_record.isChecked()) {
+			
 			Data tdata = getData();
-			if(tdata.getLatitude() != 0 && tdata.getLongitude() != 0) {
+			System.out.println(tdata.toString());
+			if(tdata.getLatitude() > 0) {
+				
+				GUI.txt_welcome.setText(tdata.toString());
 				new WriteDataTask().execute(getData().toString());
 			}
+			
         }
 		
 	}

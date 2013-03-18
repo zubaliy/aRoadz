@@ -31,10 +31,10 @@ public final class R {
         public static final int btn_record=0x7f080003;
         public static final int btn_upload=0x7f080002;
         public static final int menu_settings=0x7f08000a;
-        public static final int txt_accelerometer=0x7f080006;
+        public static final int txt_accelerometer=0x7f080009;
         public static final int txt_accuracy=0x7f080008;
         public static final int txt_gps=0x7f080005;
-        public static final int txt_speed=0x7f080009;
+        public static final int txt_speed=0x7f080006;
         public static final int txt_welcome=0x7f080000;
     }
     public static final class layout {

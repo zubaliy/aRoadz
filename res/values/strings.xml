@@ -7,8 +7,8 @@
     <string name="title_activity_main">aRoadz</string>
     <string name="off">Record</string>
     <string name="on">is Recording</string>
-    <string name="gps_enabled">GPS already Enabled</string>
-    <string name="gps_disabled">GPS Disabled</string>
+    <string name="gps_enabled">GPS is Enabled</string>
+    <string name="gps_disabled">GPS is Disabled</string>
     
 <!--     Default Text on Buttons -->
     <string name="btn_internet">Internet</string>

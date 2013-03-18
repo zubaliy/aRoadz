@@ -22,6 +22,7 @@ public class GUI {
 	public static Button btn_internet;
 	public static Button btn_gps;
 	public static ToggleButton btn_record;
+	public static Button btn_upload;
 	
 	public static void init(){
 		txt_welcome = (TextView) Config.activity.findViewById(R.id.txt_welcome); 
@@ -37,6 +38,7 @@ public class GUI {
 		btn_internet = (Button) Config.activity.findViewById(R.id.btn_internet);
 		btn_gps = (Button) Config.activity.findViewById(R.id.btn_gps);
 		btn_record = (ToggleButton) Config.activity.findViewById(R.id.btn_record);
+		btn_upload = (Button) Config.activity.findViewById(R.id.btn_upload);
 		
 		checkBtnStates();
 

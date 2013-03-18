@@ -60,7 +60,7 @@ public class GPS extends Observable implements LocationListener, GpsStatus.Liste
 	}
 	
 	public double[] getData(){
-		if(location == null || gps_enabled == false){
+		if(location == null){
 			double[] dgps = {0,0,0,0};
 			return dgps;
 		}
@@ -111,14 +111,14 @@ public class GPS extends Observable implements LocationListener, GpsStatus.Liste
 		switch (status) {
 		case LocationProvider.OUT_OF_SERVICE:
 						Toasts.showError("GPS Status Changed: Out of Service");
-						//GUI.btn_gps_WAITING();
+						GUI.btn_gps_WAITING();
 						break;
 		case LocationProvider.TEMPORARILY_UNAVAILABLE:
-						//GUI.btn_gps_WAITING();
+						GUI.btn_gps_WAITING();
 						Toasts.showError("GPS Status Changed: Temporarily Unavailable");
 						break;
 		case LocationProvider.AVAILABLE:
-						//GUI.btn_gps_ON();
+						GUI.btn_gps_ON();
 						Toasts.showError("GPS Status Changed: Available");
 						break;
 		}
@@ -184,9 +184,9 @@ public class GPS extends Observable implements LocationListener, GpsStatus.Liste
                 isGPSFix = (SystemClock.elapsedRealtime() - mLastLocationMillis) < 3000;
 
             if (isGPSFix) { // A fix has been acquired.
-            	GUI.btn_gps_ON();
+            	//GUI.btn_gps_ON();
             } else { // The fix has been lost.
-            	GUI.btn_gps_WAITING();
+            	//GUI.btn_gps_WAITING();
             }
 
             break;

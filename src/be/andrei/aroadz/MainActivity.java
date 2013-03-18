@@ -11,6 +11,7 @@ import be.andrei.aroadz.controller.Internet;
 import be.andrei.aroadz.controller.Log;
 import be.andrei.aroadz.controller.Prefilter;
 import be.andrei.aroadz.controller.ReadDataTask;
+import be.andrei.aroadz.controller.Uploader;
 import be.andrei.aroadz.model.User;
 import be.andrei.aroadz.utils.Config;
 import be.andrei.aroadz.utils.Toasts;
@@ -30,6 +31,7 @@ public class MainActivity extends Activity {
 	private ReadDataTask rdt = null;
 	private Timer timer = null;
 	private User user = null;
+	private Uploader uploader = null;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		user = User.getUser();
+		uploader = Uploader.getUploader();
 		Config.init(this);
 		GUI.init();
 
@@ -60,13 +63,8 @@ public class MainActivity extends Activity {
 						if (GUI.btn_record.isChecked()) {
 							createNewLogFile();
 							GUI.btn_record_ON();
-							
-							//testTask();
-							
 						} else {
-							GUI.btn_record_OFF();
-							//cancelTask();
-							
+							GUI.btn_record_OFF();	
 						}
 					}
 
@@ -94,6 +92,20 @@ public class MainActivity extends Activity {
 				}
 			}
 		});
+		
+		GUI.btn_upload.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				
+				if (Internet.isNetworkAvailable()) {	
+					
+					uploader.httpPostFilesInFolder(Config.workfolder);
+					
+				} else {
+					Internet.askToEnableInternet();
+					Toasts.showError("No Internet Connection");
+				}
+			}
+		});
 
 		// TODO implement long press or double click on gps_button to disable
 		// GPS met popup with ask to disable or not
@@ -103,7 +115,7 @@ public class MainActivity extends Activity {
 	public void createNewLogFile() { 
 		SimpleDateFormat df = new SimpleDateFormat("yyyy.MM.dd-kk.mm.ss");
 		String currentDateTimeString = df.format(Calendar.getInstance().getTime());
-		File logfile = new File(Config.workfolder + "/log-" + user.getEmail() + currentDateTimeString + ".csv");
+		File logfile = new File(Config.workfolder + user.getEmail() + "-"+ currentDateTimeString + ".csv");
 		Log.createNewFile(logfile);
 	}
 
