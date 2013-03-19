@@ -42,9 +42,9 @@ public class Log {
 	public static void listFilesForFolder(final File folder) {
 		File[] listOfFiles = folder.listFiles();
 
-		for (File listOfFile : listOfFiles)
-		    if (listOfFile.isFile()){
-		        filelist += listOfFile.getName() + "\n";
+		for (File element : listOfFiles)
+		    if (element.isFile()){
+		        filelist += element.getName() + "\n";
 		    }
 
 	}
@@ -98,6 +98,11 @@ public class Log {
 			      e.printStackTrace();
 			   }
 		}
+	}
+	
+	public static void deleteFile(String filepath){
+		File file = new File(filepath);
+		file.delete();
 	}
 
 }

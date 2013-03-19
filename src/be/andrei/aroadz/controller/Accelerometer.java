@@ -34,6 +34,11 @@ public class Accelerometer extends Observable {
         user.setAccResolution(Float.toString(accelerometer.getResolution()));
         user.setAccMinDelay(Float.toString(accelerometer.getMinDelay())); //enkel vanaf api 9
         
+        /*
+         *  http://developer.android.com/reference/android/hardware/SensorManager.html#getOrientation(float[], float[])
+         * 
+         */
+        
         sensorEventListener = new SensorEventListener() {	
 		    public void onAccuracyChanged(Sensor sensor, int accuracy) {
 		    	//do nothing
