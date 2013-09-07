@@ -1,0 +1,315 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="top" >
+
+    <ToggleButton
+        android:id="@+id/btn_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_gps"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        android:minHeight="60dip"
+        android:minWidth="100dip"
+        android:textOff="@string/btn_record_off"
+        android:textOn="@string/btn_record_on" />
+
+    <Button
+        android:id="@+id/btn_internet"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/txt_welcome"
+        android:minHeight="60dip"
+        android:minWidth="100dip"
+        android:text="@string/btn_internet" >
+    </Button>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/btn_record"
+        android:minHeight="60dip"
+        android:minWidth="100dip"
+        android:text="@string/btn_login" />
+
+    <Button
+        android:id="@+id/btn_upload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/btn_gps"
+        android:minHeight="60dip"
+        android:minWidth="100dip"
+        android:text="@string/btn_upload" />
+
+    <Button
+        android:id="@+id/btn_gps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/btn_calibrate"
+       
+        android:minHeight="60dip"
+        android:minWidth="100dip"
+        android:text="@string/btn_gps" />
+
+    <TextView
+        android:id="@+id/txt_welcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="5dp"
+        android:text="@string/txt_welcome"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/txt_acc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txt_gps"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/txt_accelerometer" />
+
+    <TextView
+        android:id="@+id/txt_gps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/btn_internet"
+        android:layout_marginLeft="5dp"
+        android:text="@string/txt_gps"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/txt_accuracy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txt_speed"
+        android:layout_marginLeft="5dp"
+        android:text="@string/txt_accuracy"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/txt_speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_accuracy"
+        android:layout_alignTop="@+id/btn_gps"
+        android:text="@string/txt_speed"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/txt_gps_lat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_gps"
+        android:layout_below="@+id/txt_gps"
+        android:text="@string/txt_gps_lat" />
+
+    <TextView
+        android:id="@+id/txt_gps_long"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_gps_lat"
+        android:layout_below="@+id/txt_gps_lat"
+        android:text="@string/txt_gps_long" />
+
+
+    <TextView
+        android:id="@+id/txt_acc_x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_acc"
+        android:layout_below="@+id/txt_acc"
+        android:text="X: " />
+    
+    <TextView
+        android:id="@+id/txt_acc_y"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_acc_x"
+        android:layout_alignLeft="@+id/txt_acc"
+        android:text="Y: " />
+    
+    <TextView
+        android:id="@+id/txt_acc_z"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_acc_y"
+        android:layout_alignLeft="@+id/txt_acc"
+        android:text="Z: " />
+
+    <TextView
+        android:id="@+id/txt_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_accuracy"
+        android:layout_below="@+id/btn_login"
+        android:text="User" />
+    
+<!-- Not used at the moment
+    <Button
+        android:id="@+id/btn_upload_parse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btn_upload"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/btn_upload"
+        android:minHeight="60dip"
+        android:minWidth="100dip"
+        android:text="Upload and Parse" />
+-->
+    
+    
+    
+
+    <TextView
+        android:id="@+id/txt_acc_xa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_acc"
+        android:layout_alignLeft="@+id/txt_acc"
+        android:layout_marginLeft="100dp"
+
+        android:text="X: " />
+    
+        <TextView
+        android:id="@+id/txt_acc_ya"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_acc_xa"
+        android:layout_alignLeft="@+id/txt_acc_xa"
+        android:text="Y: " />
+    
+        <TextView
+        android:id="@+id/txt_acc_za"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_acc_ya"
+        android:layout_alignLeft="@+id/txt_acc_xa"
+
+        android:text="Z: " />
+
+        <Button
+            android:id="@+id/btn_calibrate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/btn_gps"
+            android:layout_below="@+id/txt_acc"
+            android:text="@string/btn_calibrate" />
+
+        <TextView
+            android:id="@+id/txt_offset_x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+			android:layout_alignLeft="@+id/txt_acc_xa"
+			android:layout_below="@+id/txt_acc"
+			android:layout_marginLeft="80dp"
+            android:text="X: " />
+        <TextView
+            android:id="@+id/txt_offset_y"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/txt_offset_x"
+			android:layout_below="@+id/txt_offset_x"
+            android:text="X: " />
+        <TextView
+            android:id="@+id/txt_offset_z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/txt_offset_x"
+			android:layout_below="@+id/txt_offset_y"
+            android:text="X: " />
+
+        <Spinner
+            android:id="@+id/spnr_delay"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_alignRight="@+id/btn_internet"
+            android:layout_below="@+id/btn_internet"
+            android:entries="@array/spnr_entries"
+            android:minHeight="60dip"
+            android:minWidth="100dip"
+            android:prompt="@string/spnr_prompt" />
+
+        <Button
+            android:id="@+id/btn_kalman"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/txt_acc"
+            android:layout_alignLeft="@+id/btn_calibrate"
+            android:layout_alignParentRight="true"
+            android:text="Kalman" />
+
+        <TextView
+            android:id="@+id/txt_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/txt_welcome"
+            android:layout_below="@+id/txt_welcome"
+            android:text="@string/txt_time"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+        <TextView
+            android:id="@+id/txt_delay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/txt_welcome"
+            android:layout_below="@+id/txt_time"
+            android:text="@string/txt_delay"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+        <Button
+	        android:id="@+id/btn_menu"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentBottom="true"
+	        android:layout_alignParentRight="true"
+	
+	        
+	        android:minWidth="100dip"
+	        android:text="Menu" />
+        
+        <ToggleButton
+            android:id="@+id/btn_gps_speedcheck"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btn_menu"
+            android:layout_alignParentRight="true"
+            android:background="@android:drawable/btn_default"
+            android:text="GPS speed check ?"
+            android:textOff="GPS speed check ?"
+            android:textOn="GPS speed check ?" />
+
+        <Chronometer
+            android:id="@+id/chronometer1"
+            android:format="%s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/txt_time"
+            android:layout_alignBaseline="@+id/txt_time"
+            android:layout_marginLeft="110dp"
+             android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Spinner
+            android:id="@+id/spnr_timer"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:entries="@array/spnr_timer_entries"
+            android:prompt="@string/spnr_timer_text"
+            android:layout_above="@+id/btn_gps_speedcheck" />
+
+</RelativeLayout>

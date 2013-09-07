@@ -2,26 +2,40 @@ package be.andrei.aroadz.model;
 
 import java.util.Locale;
 
+/**
+ * @author Andriy
+ *
+ *	TODO: Save user information in the SQLite database
+ *	http://developer.android.com/guide/topics/data/data-storage.html#db
+ *
+ */
 public class User {
+	
+	
 	private static User user;
 	
-	private String email;
-	private String password;
-	private String nickname;
-	private String phone_model;
-	private String android_version;
-	private String android_firmware_build;
-	private String android_language;
-	private String gps_type;
+	private String	email,
+					password,
+					nickname,
+					phone_model,
+					android_version,
+					android_firmware_build,
+					android_language,
+					gps_type; // no API to get GPS vendor
 
-	private String accMaximumRange;
-	private String accResolution;
-	private String accAccMinDelay;
+	private String 	accMaximumRange,
+					accResolution,
+					accMinDelay, //the minimum delay allowed between two events in microsecond or zero if this sensor only returns a value when the data it's measuring changes.
+					accPower,
+					accVendor,
+					accVersion,
+					accType;
+	
 	
 	private User() {
-		this.email = new String("zubaliy@gmail.com");
-		this.password = new String("test");
-		this.nickname = new String("azertiy");
+		this.email = new String("default@default.com");
+		this.password = new String("default");
+		this.nickname = new String("Default");
 		this.phone_model = new String(android.os.Build.MODEL);
 		this.android_version = new String(android.os.Build.VERSION.RELEASE);
 		this.android_firmware_build = new String("null");
@@ -31,11 +45,12 @@ public class User {
 		
 		this.accMaximumRange = new String("null");
 		this.accResolution = new String("null");
-		this.accAccMinDelay = new String("null");
+		this.accMinDelay = new String("null");
+		this.accPower = new String("null"); 
 		
 	}
 
-	public static User getUser() {
+	public static User getInstance() {
 		if (user == null) {
 			user = new User();
 		}
@@ -124,14 +139,65 @@ public class User {
 	}
 
 	public String getAccMinDelay() {
-		return accAccMinDelay;
+		return accMinDelay;
 	}
 
 	public void setAccMinDelay(String accAccMinDelay) {
-		this.accAccMinDelay = accAccMinDelay;
+		this.accMinDelay = accAccMinDelay;
 	}
 
+	public String getAccPower() {
+		return accPower;
+	}
 
+	public void setAccPower(String accPower) {
+		this.accPower = accPower;
+	}
+
+	public String getAccVendor() {
+		return accVendor;
+	}
+
+	public void setAccVendor(String accVendor) {
+		this.accVendor = accVendor;
+	}
+
+	public String getAccVersion() {
+		return accVersion;
+	}
+
+	public void setAccVersion(String accVersion) {
+		this.accVersion = accVersion;
+	}
+
+	public String getAccType() {
+		return accType;
+	}
+
+	public void setAccType(String accType) {
+		this.accType = accType;
+	}
+
+	@Override
+	public String toString() {
+		String s = new String();
+		s  = "Accelerometer: " 
+		   + "Power: " + this.getAccPower()
+		   + "\nVendor: " + this.getAccVendor()
+		   + "\nResolution: " + this.getAccResolution()
+		   + "\nMin delay: " + this.getAccMinDelay()
+		   + "\nMax range: " + this.getAccMaximumRange()
+		   + "\nVersion: " + this.getAccVersion()
+		   + "\tType: " + this.getAccType()
+		
+		   + "\nAndroid lang: " + this.getAndroid_language()
+		   + "\tVersion: " + this.getAndroid_version()
+		   + "\nPhone model: " + this.getPhone_model();
+		
+		
+		
+		return s;
+	}
 
 
 }

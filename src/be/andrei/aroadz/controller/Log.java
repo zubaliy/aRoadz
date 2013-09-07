@@ -4,20 +4,37 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 
 
+import android.annotation.SuppressLint;
+import be.andrei.aroadz.model.User;
+import be.andrei.aroadz.utils.Config;
 import be.andrei.aroadz.utils.Toasts;
 
-
-
+/*
+ * Full route save
+ * 
+ */
 
 public class Log {
 	
 	private static File logfile = null;
 	public static String filelist = new String();
 	
-	//Toast.makeText(getApplicationContext(), currentDateTimeString, Toast.LENGTH_LONG).show();
+	@SuppressLint("SimpleDateFormat")
+	public static void createNewLogFile() {
+		SimpleDateFormat df = new SimpleDateFormat("yyyy.MM.dd-kk.mm.ss");
+		String currentDateTimeString = df.format(System.currentTimeMillis());
+		
+		logfile = new File(Config.workfolder
+				+ User.getInstance().getEmail() 
+				+ "-" + currentDateTimeString
+				+ ".csv");
+		
+		Log.createNewFile(logfile);
+	}
 	
 	public static void createNewFile(File file){
 		logfile = file;
@@ -25,9 +42,45 @@ public class Log {
 		      try
 		      {
 		         file.createNewFile();
-		         // first line used as header.
-		         // need to parse csv
-		         appendLogLine("timestamp;	longitude;	latitude;	x;	y;	z;	speed;	gps_accuracy");
+		         // First line used as header.
+		         // Need to parse csv on the server correctly.
+		         
+		      // Check final DATA STRUCTURE in class Data.java
+		 		/* DATA STRUCTURE
+		 		 *  time
+		 		 *  lon, lat, 
+		 		 *  accx, accy, accz, 				RAW Accelerometer
+		 		 *  accxa, accya, accza, 			RAW Acceleration
+		 		 *  accxR, accyR, acczR				REMAPPED 
+		 		 *  accxaR, accyaR, acczaR, 		REMAPPED
+		 		 *  speed, gps_accuracy, altitude
+		 		 *  gyrox, goroy, gyroz				RAW
+
+		 		 *  
+		 		 */
+		         appendLogLine(	 "timestamp" + ",\t" +
+				        		 "longitude" + ",\t" + 
+				        		 "latitude" + ",\t" + 	
+				        		 "x" + ",\t" + 
+				        		 "y" + ",\t" + 
+				        		 "z" + ",\t" + 
+				        		 "xa" + ",\t" + 
+				        		 "ya" + ",\t" + 
+				        		 "za" + ",\t" + 
+				        		 "xR" + ",\t" + 
+				        		 "yR" + ",\t" + 
+				        		 "zR" + ",\t" + 
+				        		 "xaR" + ",\t" + 
+				        		 "yaR" + ",\t" + 
+				        		 "zaR" + ",\t" + 
+				        		 "speed" + ",\t" + 
+				        		 "gps_accuracy" + ",\t" + 
+				        		 "altitude" + ",\t" + 
+				        		 "gyroX" + ",\t" + 
+				        		 "gyroY" + ",\t" + 
+				        		 "gyroZ"
+
+				        		 );
 		         Toasts.showError("New logfile was created");
 		         
 		      } 
@@ -55,7 +108,7 @@ public class Log {
 		      try
 		      {
 		         file.createNewFile();
-		         Toasts.showError("New listfile was created");
+		         Toasts.showGreenMessage("New listfile was created");
 		      } 
 		      catch (IOException e)
 		      {

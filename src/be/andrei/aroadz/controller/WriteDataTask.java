@@ -3,8 +3,6 @@ package be.andrei.aroadz.controller;
 import android.os.AsyncTask;
 
 public class WriteDataTask extends AsyncTask<String, String, String > {
-	private boolean running = true;
-
 	
 	protected void onPreExecute() {
 		super.onPreExecute();
